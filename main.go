@@ -72,7 +72,7 @@ func (r *root) Execute(ctx context.Context) (err error) {
 	for range r.randoms {
 		if err := run(
 			"go", "test", "-c",
-			fmt.Sprintf("-ldflags=-randlayout=%d", mwc.Uint64()),
+			fmt.Sprintf("-ldflags=-randlayout=%d", mwc.Uint32()),
 			"-o", "shush.test",
 			r.pkg,
 		); err != nil {
